@@ -1,4 +1,7 @@
 .build/
+**/bin/
+**/obj/
+Windows/publish/
 *.app/
 *.dSYM/
 .DS_Store

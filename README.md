@@ -1,32 +1,48 @@
 # Capri Companion
 
-Capri is a macOS desktop pet with a floating, transparent character window. The supplied portrait is used as her sprite, and the chat panel follows the second screenshot's prompt bar, character, and compact controls.
+Capri is an original desktop companion with a floating, transparent character window. Her supplied PNG has a transparent background, including in chat, so she sits directly over the desktop instead of inside a black rectangle.
 
-## Run
+## Windows PC
 
-Requirements: macOS 13 or later and Xcode Command Line Tools (for `swiftc`). Ollama is optional for opening the app, and required for local AI replies.
+Windows 10/11 on x64 or ARM64. Ollama is optional for opening Capri and required for local AI replies. An internet connection is needed the first time to install the .NET 10 SDK and restore the Windows speech package.
 
-1. Open Terminal and `cd` to this folder.
-2. Run `./run.sh`. The script compiles a universal Intel + Apple Silicon app when needed, installs it to `~/Applications/Capri Companion.app`, and starts the installed copy. If Launch Services declines the locally built bundle, the script starts the installed executable directly.
-3. Right-click Capri and choose **Chat**. On first use, she asks what to call you in the chat prompt.
-4. For chat, start Ollama and install the preferred model:
+1. Open PowerShell in this project folder.
+2. Run:
 
-   ```sh
-   ollama pull gemma4:e4b
+   ```powershell
+   powershell -NoProfile -ExecutionPolicy Bypass -File .\run-windows.ps1
    ```
 
-   If the exact tag is unavailable, Mainframe can use an installed model whose name includes both `gemma4` and `e4b`. In Mainframe → Brain, you can select another installed local model or enter a model tag and use **Pull selected model**.
+The script installs the .NET SDK under your Windows user profile if needed, builds a self-contained Windows app, installs it to `%LOCALAPPDATA%\Programs\Capri Companion`, and starts it. Right-click Capri for **Chat**, **Mainframe**, size controls, **Hide Capri**, and **Quit**. If hidden, use the Capri icon in the system tray to show her again. Closing Mainframe leaves Capri running.
 
-The app talks only to `http://127.0.0.1:11434`. It does not send data to a cloud model, and it does not fall back to one if Ollama is unavailable. Chat, settings, and memories are stored locally in this macOS user account. Voice input uses on-device macOS speech recognition only while you explicitly start the microphone; if on-device recognition is unavailable, the mic remains off. Spoken replies use the selected built-in macOS voice.
+On first launch, Capri asks what to call you. Chat, settings, and editable memories are saved locally under `%LOCALAPPDATA%\CapriCompanion`. The Windows build offers optional Windows speech input and spoken replies. Screen commentary is not enabled in this Windows build; Capri does not inspect your screen.
 
-## Controls
+## macOS
 
-- Click Capri to open chat. Right-click her for **Talk to her**, **Sit here**, and **Move**, **Size**, **Brain**, and **Settings** submenus. Drag her to move her; **Sit here** locks her in place.
-- Change her size from **Mainframe → Pet Scale** or the right-click **Size** submenu.
-- The cyan `> you:` prompt sits above Capri; press Return to send. Her replies appear between the prompt and portrait.
-- Use the menu bar bird icon to show Capri or open Mainframe.
-- Mainframe is a separate cyberpunk control panel. Closing it leaves Capri on the desktop. It includes startup presets, pet scale, personality sliders, quiet mode and check-in timing, Ollama status/model selection, optional voice controls, and editable memories.
-- Optional **Screen Commentary** uses macOS Screen Recording permission and on-device Vision OCR. It sends only extracted text to the selected local Ollama model, does not save screenshots or OCR text, and pauses in Quiet Mode. It is off until you enable it and grant permission.
-- Check-ins wait until the selected idle interval has passed. Set the interval to **Off**, set proactivity to **Quiet**, or enable **Quiet Mode** to turn them off.
+Requirements: macOS 13 or later and Xcode Command Line Tools for `swiftc`.
+
+1. Open Terminal and `cd` to this folder.
+2. Run `./run.sh`. It compiles a universal Intel + Apple Silicon app when needed, installs it to `~/Applications/Capri Companion.app`, and starts the installed copy.
+3. Right-click Capri and choose **Chat**. On first use, she asks what to call you.
+
+Optional screen commentary is available on macOS when you enable it in Mainframe and grant Screen Recording access. It uses on-device OCR and sends extracted text only to the local Ollama model; screenshots and OCR text are not saved.
+
+## Local AI setup
+
+Start Ollama and install the preferred model:
+
+```sh
+ollama pull gemma4:e4b
+```
+
+In Mainframe → Brain, you can choose another installed local model or enter a tag and pull it. If Ollama or the selected model is missing, Capri shows a setup message. She connects only to `http://127.0.0.1:11434`; chat and memories are not sent to a cloud service and there is no cloud fallback.
+
+## Features
+
+- Small always-on-top pet window with native desktop dragging, idle motion, startup presets, and adjustable size.
+- Click Capri to open chat; right-click for the pet menu.
+- Mainframe controls appearance, personality, behavior, local Ollama model, optional voice, and user-managed memories.
+- Windows tray icon and macOS menu bar controls can show Capri again after hiding her.
+- Closing Mainframe does not close the pet.
 
 Game control, call integration, and unrelated system monitoring are not included.
