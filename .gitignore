@@ -1,0 +1,4 @@
+.build/
+*.app/
+*.dSYM/
+.DS_Store

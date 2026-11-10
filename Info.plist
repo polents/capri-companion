@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>CFBundleExecutable</key>
+	<string>CapriCompanion</string>
+	<key>CFBundleIdentifier</key>
+	<string>local.capri.companion</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>Capri Companion</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>13.0</string>
+	<key>LSUIElement</key>
+	<true/>
+	<key>NSPrincipalClass</key>
+	<string>NSApplication</string>
+	<key>NSHighResolutionCapable</key>
+	<true/>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Capri connects to your local Ollama server at 127.0.0.1 for private on-device chat.</string>
+	<key>NSScreenCaptureUsageDescription</key>
+	<string>Capri can read visible on-screen text for occasional commentary only when you enable Screen Commentary in Mainframe.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Capri uses the microphone only when you tap the microphone control to dictate a message.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Capri uses on-device macOS speech recognition only while you explicitly start dictation.</string>
+</dict>
+</plist>
