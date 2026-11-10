@@ -1,0 +1,41 @@
+<Window x:Class="CapriCompanion.Windows.PetWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Capri" Width="190" Height="326" WindowStyle="None" ResizeMode="NoResize"
+        ShowInTaskbar="False" Topmost="True" AllowsTransparency="True" Background="Transparent"
+        Loaded="OnLoaded" LocationChanged="OnLocationChanged" MouseRightButtonUp="OpenContextMenu">
+    <Window.Resources>
+        <Style TargetType="ContextMenu">
+            <Setter Property="Background" Value="#FF111720" />
+            <Setter Property="Foreground" Value="#FFF1F4F7" />
+            <Setter Property="BorderBrush" Value="#FF334451" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="4" />
+        </Style>
+        <Style TargetType="MenuItem">
+            <Setter Property="Foreground" Value="#FFF1F4F7" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Padding" Value="16,8" />
+        </Style>
+    </Window.Resources>
+    <Grid x:Name="PetSurface" Background="Transparent" RenderTransformOrigin=".5,.5">
+        <Grid.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform ScaleX=".78" ScaleY=".78" />
+                <TranslateTransform Y="18" />
+            </TransformGroup>
+        </Grid.RenderTransform>
+        <Ellipse x:Name="OrbitRing" Width="126" Height="236" Stroke="#FF54E7F2" StrokeThickness="1.2"
+                 StrokeDashArray="3,5" Opacity="0" IsHitTestVisible="False" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Ellipse.RenderTransform><ScaleTransform ScaleX=".72" ScaleY=".72" /></Ellipse.RenderTransform>
+            <Ellipse.Effect><DropShadowEffect Color="#FF54E7F2" BlurRadius="14" ShadowDepth="0" Opacity=".5" /></Ellipse.Effect>
+        </Ellipse>
+        <Image x:Name="PetImage" Source="Assets/capri-main.png" Stretch="Uniform" Margin="4"
+               RenderTransformOrigin=".5,.5" MouseLeftButtonDown="PetMouseDown">
+            <Image.RenderTransform><TranslateTransform /></Image.RenderTransform>
+            <Image.Effect>
+                <DropShadowEffect Color="#FF27DDF5" BlurRadius="22" ShadowDepth="0" Opacity=".38" />
+            </Image.Effect>
+        </Image>
+    </Grid>
+</Window>
