@@ -74,6 +74,23 @@ chmod u+x ./run.sh
 
 That means the build is still active. Leave Terminal open and wait for `Installed and started …` and the `%` prompt to return before typing another command. If an error appears, copy the final lines from Terminal. If `swiftc` is missing, install Apple's Command Line Tools with `xcode-select --install`, then run `bash ./run.sh` again.
 
+## Contributors
+
+Project credits (GitHub's automatic Contributors graph reflects commit authors):
+
+- **@polents** — project owner and creative direction.
+- **OpenAI Codex** — coding assistant.
+- **Claude** — AI collaborator.
+- **ChatGPT** — AI collaborator.
+
+## Languages
+
+- **Swift** — macOS companion app.
+- **C#** and **XAML** — Windows companion app and WPF interface.
+- **Bash** — macOS build and install launcher.
+- **PowerShell** — Windows build and install launcher.
+- **XML** — macOS app bundle metadata.
+
 ## Features
 
 - Small always-on-top pet window with desktop dragging, idle motion, startup presets, and adjustable size.
