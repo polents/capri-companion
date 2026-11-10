@@ -142,7 +142,6 @@ private struct ChatPetView<MenuContent: View>: View {
         }
         .padding(.horizontal, 26).padding(.top, 42).padding(.bottom, 16)
         .frame(width: 380, height: chatHeight)
-        .background(Color.black.opacity(0.98))
         .onAppear { inputFocused = true }
     }
 
